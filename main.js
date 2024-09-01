@@ -1,24 +1,14 @@
-import './style.css'
-import javascriptLogo from './javascript.svg'
-import viteLogo from '/vite.svg'
-import { setupCounter } from './counter.js'
+import './style.css';
+import MarkdownUtils from './utils/markdown-utils.js';
+
+const text = `## Memo Chou\n
+Hi there 🙋\n
+I'm Memo Chou, a creative developer passionate about Go, PHP, Rust and JavaScript.\n
+Any questions, or want to get involved, please get in touch.\n
+[Click me](https://epoch.epoch.tw) for more details.`;
 
 document.querySelector('#app').innerHTML = `
   <div>
-    <a href="https://vitejs.dev" target="_blank">
-      <img src="${viteLogo}" class="logo" alt="Vite logo" />
-    </a>
-    <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript" target="_blank">
-      <img src="${javascriptLogo}" class="logo vanilla" alt="JavaScript logo" />
-    </a>
-    <h1>Hello Vite!</h1>
-    <div class="card">
-      <button id="counter" type="button"></button>
-    </div>
-    <p class="read-the-docs">
-      Click on the Vite logo to learn more
-    </p>
+    ${MarkdownUtils.toSafeHtml(text)}
   </div>
-`
-
-setupCounter(document.querySelector('#counter'))
+`;
